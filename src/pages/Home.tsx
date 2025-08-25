@@ -42,7 +42,7 @@ const Home = () => {
             <section className="py-12 md:py-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Gerencie suas finanças com <span className="text-primary-500">AnaBills</span></h1>
+                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Gerencie suas finanças com <span className="text-primary-500">DevBills</span></h1>
                         <p className="text-lg text-white mb-8">
                             Uma plataforma simples para controlar suas despesas, receitas e orçamentos de forma eficiente. Organize suas finanças pessoais ou do seu negócio com facilidade.
                         </p>
@@ -56,7 +56,7 @@ const Home = () => {
             <section className="py-12 md:py-20 bg-gray-900 rounded-xl">
                 <div className="container-app">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-white mb-4">Recursos do AnaBills</h2>
+                        <h2 className="text-3xl font-bold text-white mb-4">Recursos do DevBills</h2>
                         <p className="text-lg text-white max-w-2xl mx-auto">Nossa plataforma oferece tudo o que você precisa para manter suas finanças organizadas.</p>
                     </div>
 
@@ -82,7 +82,7 @@ const Home = () => {
             <section className="py-12 md:py-20">
                 <div className="bg-gray-900 p-8 md:p-12 rounded-xl text-center border border-gray-700">
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Pronto para organizar suas finanças?</h2>
-                    <p className="text-white opacity-90 max-w-2xl mx-auto mb-8">Comece a usar o AnaBills hoje mesmo e tenha controle total sobre seu dinheiro. é grátis e fácil de usar!
+                    <p className="text-white opacity-90 max-w-2xl mx-auto mb-8">Comece a usar o DevBills hoje mesmo e tenha controle total sobre seu dinheiro. é grátis e fácil de usar!
                     </p>
                     <Button className="mx-auto px-6 py-3">
                         Criar Conta Gratuita
