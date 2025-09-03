@@ -67,3 +67,79 @@ export default tseslint.config([
   },
 ])
 ```
+
+
+INTERFACE-FINANCEIRO
+
+💼 Aplicação web para gerenciamento financeiro pessoal, desenvolvida com React, TypeScript e Vite.
+
+📄 Descrição
+
+O INTERFACE-FINANCEIRO é uma aplicação moderna para controle de finanças pessoais, permitindo ao usuário registrar e visualizar suas receitas e despesas de forma intuitiva. Desenvolvido com React, TypeScript e Vite, o projeto visa proporcionar uma experiência de usuário eficiente e responsiva.
+
+🚀 Tecnologias Utilizadas
+
+React
+
+TypeScript
+
+Vite
+
+ESLint
+
+📂 Estrutura do Projeto
+
+index.html: Estrutura principal da página.
+
+src/: Diretório contendo os arquivos-fonte da aplicação.
+
+package.json: Gerenciamento de dependências e scripts.
+
+tsconfig.json: Configurações do TypeScript.
+
+.env.example: Exemplo de arquivo de variáveis de ambiente.
+
+.gitignore: Arquivos e pastas a serem ignorados pelo Git.
+
+biome.json: Configurações do Biome.
+
+eslint.config.js: Configurações do ESLint.
+
+vite.config.ts: Configurações do Vite.
+
+🧪 Como Rodar o Projeto
+
+Clone o repositório:
+
+git clone https://github.com/analauracano/INTERFACE-FINANCEIRO.git
+cd INTERFACE-FINANCEIRO
+
+
+Instale as dependências:
+
+yarn install
+
+
+Inicie o servidor de desenvolvimento:
+
+yarn dev
+
+
+Acesse a aplicação no navegador: http://localhost:3000.
+
+🛠️ Como Contribuir
+
+Faça um fork deste repositório.
+
+Crie uma branch para sua modificação (git checkout -b feature/nova-funcionalidade).
+
+Realize suas alterações e faça commit (git commit -am 'Adiciona nova funcionalidade').
+
+Envie para o repositório remoto (git push origin feature/nova-funcionalidade).
+
+Abra um pull request.
+
+📌 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE
+ para mais detalhes.
