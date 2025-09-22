@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import Input from "../components/Input";
 import Card from "../components/Card";
 import { TransactionType, type Transaction } from "../types/transactions";
-import { getTransactions } from "../services/transactionService";
+import { deleteTransactions, getTransactions } from "../services/transactionService";
 import Button from "../components/Button";
 import { formatCurrency, formatDate } from "../utils/formatter";
+import { toast } from "react-toastify";
 
 const Transactions = () => {
     const currentDate = new Date();
@@ -33,8 +34,25 @@ const Transactions = () => {
         }
      };
 
-     const handleDelete = (id:string):void => {
+     const handleDelete = async (id:string): Promise<void> => {
+        try {
+            setDeletingId(id)
+            await deleteTransactions(id)
+            toast.success('Transação deletada com sucesso!')
+            setTransactions((prev) => prev.filter((t) => t.id !== id));
 
+        } catch (err) {
+            console.error(err)
+            toast.error('Falha ao deletar transação')
+        } finally {
+            setDeletingId('')
+        }
+     }
+
+     const confirmDelete = (id: string): void => {
+        if(window.confirm('Tem certeza que quer deletar essa transação?')) {
+            handleDelete(id)
+        }
      }
 
     useEffect(() => {     
@@ -133,7 +151,7 @@ const Transactions = () => {
                             </td>
                             <td className="px-3 py-4 whitespace-nowrap cursor-pointer">
                                 <button type="button"
-                                onClick={() => handleDelete(transaction.id)}
+                                onClick={() => confirmDelete(transaction.id)}
                                 className="text-red-500 hover:text-red-400 rounded-full cursor-pointer"
                                 disabled={deletingId === transaction.id}
                                 >
