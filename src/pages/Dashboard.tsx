@@ -5,7 +5,7 @@ import type { MonthlyItem, TransactionSummary } from '../types/transactions';
 import Card from '../components/Card';
 import { ArrowUp, Calendar, TrendingUp, Wallet } from 'lucide-react'
 import { formatCurrency } from '../utils/formatter';
-import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 const initialSummary: TransactionSummary = {
     totalExpenses: 0,
