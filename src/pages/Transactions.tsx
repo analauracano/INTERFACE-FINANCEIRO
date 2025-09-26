@@ -1,7 +1,7 @@
 import { AlertCircle, ArrowDown, ArrowUp, Plus, Search, Trash2 } from "lucide-react";
 import { Link } from "react-router";
 import MonthYearSelect from "../components/MonthYearSelect";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import Input from "../components/Input";
 import Card from "../components/Card";
 import { TransactionType, type Transaction } from "../types/transactions";
@@ -17,7 +17,9 @@ const Transactions = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
     const [transactions, setTransactions] = useState<Transaction[]>([]);
-    const [deletingId, setDeletingId] = useState<string>()
+    const [deletingId, setDeletingId] = useState<string>();
+    const [searchText, setSearchText] = useState<string>('');
+    const [filteredTransactions, setFilteredTransactions] = useState<Transaction[]>([]);
 
     const fetchTransactions = async (): Promise<void> => {
         try {
@@ -25,7 +27,7 @@ const Transactions = () => {
             setError('')
             const data = await getTransactions ({month, year});
             setTransactions(data)
-            console.log(data)
+            setFilteredTransactions(data)
         } catch (err) {
             console.error(err);
             setError('Não foi possível carregar as transações, tente novamente')
@@ -59,7 +61,13 @@ const Transactions = () => {
      fetchTransactions()
     }, [month, year])
 
-
+    const handleSearchChange = (event: ChangeEvent<HTMLInputElement>):void => {
+        setSearchText(event.target.value);
+        setFilteredTransactions( transactions.filter(transaction => transaction.description.toUpperCase().includes(event.target.value.toUpperCase()),
+    ),
+            
+ );
+};
 
     return (
         <div className="container-app py-6">
@@ -83,6 +91,8 @@ const Transactions = () => {
             placeholder='Buscar transações...'
             icon={<Search className="w-4 h-4" />} 
             fullWidth
+            onChange={handleSearchChange}
+            value={searchText}
             />
             </Card>
 
@@ -119,7 +129,7 @@ const Transactions = () => {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-700">
-                    {transactions.map((transaction)=> (
+                    {filteredTransactions.map((transaction)=> (
                         <tr key={transaction.id} className="hover:bg-gray-800">
                             <td className="px-3 py-4 text-sm text-gray-400 whitespace-nowrap">
                                 <div className="flex items-center">
