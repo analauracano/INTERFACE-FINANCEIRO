@@ -20,6 +20,14 @@ export interface Transaction {
     userId: string;
 }
 
+export interface CreateTransactionDTO {
+    description: string;
+    amount: number;
+    date: Date | string;
+    categoryId: string;
+    type: TransactionType;
+}
+
 export interface TransactionFilter {
     month: number;
     year: number;
